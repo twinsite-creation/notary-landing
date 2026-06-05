@@ -274,6 +274,7 @@ button {
   display: flex;
   align-items: center;
   gap: 0;
+  display: none; /* hide on desktop since lang toggle is removed */
 }
 .lang-toggle {
   display: flex;
@@ -1300,6 +1301,10 @@ button {
     display: none;
   }
   .hamburger {
+    display: flex;
+  }
+
+  .header-right {
     display: flex;
   }
   .hero .wrap {
