@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>
+    <title data-tsc="title">
       Notary Kharkiv City Centre — Rymarska St. 19 | 30+ Years Experience
     </title>
     <meta
@@ -12,28 +12,21 @@
     />
 
     <!-- favicon -->
-    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/images/favicon-16x16.png"
-    />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="alternate" hreflang="uk" href="index.html" />
     <link rel="alternate" hreflang="en" href="index-en.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Figtree:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Manrope:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Demo layer (Twin Site Creator): delete this line and the demo-layer script for a client site -->
+    <link rel="stylesheet" href="assets/css/demo-layer.css" />
   </head>
   <body>
     <!-- =====================================================
@@ -41,9 +34,10 @@
 ===================================================== -->
     <header class="site-header">
       <div class="wrap header-inner">
-        <a href="index-en.html" class="logo">
-          <span class="logo-name">Notary</span>
-          <span class="logo-title">Private Notary · Kharkiv</span>
+        <a href="index-en.html" class="logo" aria-label="Private notary Olena Koval, Kharkiv — home" data-tsc-label>
+          <span class="logo-name" data-tsc="surname">Koval</span>
+          <span class="logo-rule" aria-hidden="true"></span>
+          <span class="logo-title">Notary · <span data-tsc="city">Kharkiv</span></span>
         </a>
         <nav class="main-nav" aria-label="Main navigation">
           <a href="#services" class="nav-item">Services</a>
@@ -52,10 +46,10 @@
           <a href="#contact" class="nav-item">Contact</a>
         </nav>
         <div class="header-right">
-          <div class="lang-toggle">
-            <button class="lang-btn" data-lang="uk">UA</button>
-            <button class="lang-btn on" data-lang="en">EN</button>
-          </div>
+          <nav class="lang-toggle" aria-label="Site language">
+            <a class="lang-btn" href="index.html" hreflang="uk" lang="uk">UA</a>
+            <a class="lang-btn on" href="index-en.html" hreflang="en" lang="en" aria-current="page">EN</a>
+          </nav>
 
           <button
             class="hamburger"
@@ -74,14 +68,11 @@
     <div class="mob-overlay" id="mobOverlay"></div>
     <nav class="mob-panel" id="mobPanel" aria-label="Mobile menu">
       <div class="mob-head">
-        <span
-          class="logo-name"
-          style="
-            font-family: &quot;Playfair Display&quot;, serif;
-            color: var(--ink);
-          "
-          >Notary Kharkiv</span
-        >
+        <a href="index-en.html" class="logo" aria-label="Private notary Olena Koval, Kharkiv — home" data-tsc-label>
+          <span class="logo-name" data-tsc="surname">Koval</span>
+          <span class="logo-rule" aria-hidden="true"></span>
+          <span class="logo-title">Notary · <span data-tsc="city">Kharkiv</span></span>
+        </a>
         <button class="mob-close" id="mobClose" aria-label="Close menu">
           <svg
             viewBox="0 0 24 24"
@@ -102,10 +93,10 @@
         <a href="#contact" class="mob-link">Contact</a>
       </div>
       <div class="mob-foot">
-        <!--<div class="mob-lang">
-          <button class="lang-btn" data-lang="uk">UA</button>
-          <button class="lang-btn on" data-lang="en">EN</button>
-        </div>-->
+        <nav class="mob-lang" aria-label="Site language">
+          <a class="lang-btn" href="index.html" hreflang="uk" lang="uk">UA</a>
+          <a class="lang-btn on" href="index-en.html" hreflang="en" lang="en" aria-current="page">EN</a>
+        </nav>
       </div>
     </nav>
 
@@ -120,15 +111,15 @@
               <div class="hero-tag" data-sr="up">
                 <div class="hero-tag-line"></div>
                 <span class="t-label"
-                  >Notary Office · Kharkiv (City Centre)</span
+                  >Notary Office · <span data-tsc="city">Kharkiv</span> (City Centre)</span
                 >
               </div>
               <h1 class="hero-headline" data-sr="up" data-delay="80">
-                Private Notary in Kharkiv
+                Private Notary in <span data-tsc="city">Kharkiv</span>
               </h1>
               <p class="hero-sub" data-sr="up" data-delay="160">
-                Private notary in central Kharkiv (Rymarska St. 19) with over 30
-                years of experience. Contracts, inheritance, powers of attorney
+                <span data-tsc="address">Rymarska St. 19, Kharkiv</span> ·
+                over 30 years of experience. Contracts, inheritance, powers of attorney
                 and all notarial documents — handled quickly, professionally and
                 in full compliance with Ukrainian law.
               </p>
@@ -172,9 +163,49 @@
               loading="eager"
             />
             <div class="hero-img-caption">
-              <span class="hero-img-caption-text">Private Notary</span>
-              <span class="hero-img-caption-text">Kharkiv, Ukraine</span>
+              <span class="hero-img-caption-text"><span data-tsc="name">Olena Koval</span></span>
+              <span class="hero-img-caption-text"><span data-tsc="city">Kharkiv</span>, Ukraine</span>
             </div>
+            <!-- SEAL: signature + stamp over hero photo -->
+            <svg
+              class="seal-stamp seal-stamp--play"
+              viewBox="0 0 300 200"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <filter id="seal-ink" x="-10%" y="-10%" width="120%" height="120%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="grain" />
+                  <feDisplacementMap in="SourceGraphic" in2="grain" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="wobble" />
+                  <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3" result="blots" />
+                  <feColorMatrix in="blots" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.75" result="mask" />
+                  <feComposite in="wobble" in2="mask" operator="in" />
+                </filter>
+                <filter id="seal-blur" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="6" />
+                </filter>
+                <path id="seal-ring-path" d="M 200,100 m -74,0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0" />
+              </defs>
+              <path
+                class="seal__sign"
+                pathLength="1"
+                d="M8,158 C22,128 36,104 44,118 C52,132 40,170 56,160 C70,150 74,122 84,126 C94,130 86,158 98,156 C110,154 112,132 122,134 C132,136 126,156 138,154 C152,152 160,128 172,138 C180,145 168,160 158,162 C140,166 92,170 60,178 C44,182 40,176 60,170 C110,156 190,150 248,146"
+              />
+              <circle class="seal__shadow" cx="200" cy="104" r="92" filter="url(#seal-blur)" />
+              <g class="seal__stamp" filter="url(#seal-ink)">
+                <circle cx="200" cy="100" r="94" class="seal__line seal__line--bold" />
+                <circle cx="200" cy="100" r="89" class="seal__line" />
+                <circle cx="200" cy="100" r="64" class="seal__line" />
+                <circle cx="200" cy="100" r="59" class="seal__line seal__line--dots" />
+                <text class="seal__ring-text">
+                  <textPath href="#seal-ring-path" textLength="462">PRIVATE NOTARY · <tspan data-seal="name" data-tsc="name">Olena Koval</tspan> · <tspan data-seal="city" data-tsc="city">Kharkiv</tspan> ·</textPath>
+                </text>
+                <path class="seal__star" d="M200,58 l2.6,6.4 6.9,.5 -5.3,4.4 1.7,6.7 -5.9,-3.7 -5.9,3.7 1.7,-6.7 -5.3,-4.4 6.9,-.5z" />
+                <text class="seal__mono" x="200" y="120" data-seal="initials">OK</text>
+                <line class="seal__line" x1="176" y1="132" x2="224" y2="132" />
+                <path class="seal__star seal__star--sm" d="M200,138 l1.6,3.9 4.2,.3 -3.2,2.7 1,4.1 -3.6,-2.2 -3.6,2.2 1,-4.1 -3.2,-2.7 4.2,-.3z" />
+              </g>
+            </svg>
           </div>
         </div>
       </section>
@@ -185,7 +216,6 @@
       <section class="services" id="services">
         <div class="wrap">
           <div class="services-head">
-            <div class="services-num-label" aria-hidden="true">02</div>
             <div data-sr="up">
               <span class="t-label" style="display: block; margin-bottom: 8px"
                 >Services</span
@@ -240,7 +270,7 @@
                     <line x1="16" y1="13" x2="8" y2="13" />
                   </svg>
                 </div>
-                <div class="svc-name">Document Certification in Kharkiv</div>
+                <div class="svc-name">Document Certification in <span data-tsc="city">Kharkiv</span></div>
                 <p class="svc-desc">
                   Notarisation of signatures, copies, statements and
                   translations in accordance with Ukrainian legal requirements.
@@ -283,7 +313,7 @@
                     <polyline points="9 22 9 12 15 12 15 22" />
                   </svg>
                 </div>
-                <div class="svc-name">Real Estate Notary in Kharkiv</div>
+                <div class="svc-name">Real Estate Notary in <span data-tsc="city">Kharkiv</span></div>
                 <p class="svc-desc">
                   Sale, gift, and inheritance of real estate with full legal
                   due-diligence and title verification.
@@ -368,20 +398,19 @@
         <div class="about-img-col">
           <img
             src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=85"
-            alt="Private notary"
+            alt="Private notary workplace in central Kharkiv"
             loading="lazy"
           />
           <div class="about-sticker">
-            <div class="about-sticker-yr">2009</div>
-            <div class="about-sticker-txt">Year Founded</div>
+            <div class="about-sticker-yr">1995</div>
+            <div class="about-sticker-txt">Practising Since</div>
           </div>
         </div>
         <div class="about-text-col">
           <span class="t-label" data-sr="up">About the Notary</span>
-          <h2 class="t-heading" data-sr="up" data-delay="80">Private Notary</h2>
+          <h2 class="t-heading" data-sr="up" data-delay="80"><span data-tsc="name">Olena Koval</span></h2>
           <p class="t-body" data-sr="up" data-delay="160">
-            Private notary of the Kharkiv Notarial District with over 30 years
-            of practice. Thousands of contracts, inheritance cases and notarial
+            Private notary in <span data-tsc="city">Kharkiv</span> with over 30 years of practice. Thousands of contracts, inheritance cases and notarial
             documents of varying complexity have been completed over this time.
           </p>
           <p class="t-body" data-sr="up" data-delay="200">
@@ -390,8 +419,9 @@
             and meticulous attention to detail.
           </p>
           <p class="t-body" data-sr="up" data-delay="260">
-            The notary office is located in the very centre of Kharkiv —
-            Rymarska St. 19 — providing easy access for all clients.
+            The notary office is located in the city centre:
+            <span data-tsc="address">Rymarska St. 19, Kharkiv</span>. It is
+            easy to reach by public transport.
           </p>
           <p class="t-body" data-sr="up" data-delay="300">
             I guarantee legality, confidentiality and an individual approach for
@@ -469,7 +499,8 @@
                   Practice is conducted on the basis of a certificate granting
                   the right to engage in notarial activity, issued by the
                   Ministry of Justice of Ukraine in accordance with the Law of
-                  Ukraine "On Notaries". Kharkiv Notarial District Register.
+                  Ukraine "On Notaries".
+                  <span data-tsc="district">Kharkiv City Notarial District.</span>
                 </p>
               </div>
             </div>
@@ -602,17 +633,18 @@
                       >30+ Years of Experience</span
                     >
                     <span class="trust-reason-txt"
-                      >One of the most extensive practical track records among
-                      notaries in Kharkiv.</span
+                      >Over 30 years of daily practice, from simple powers of
+                      attorney to complex inheritance cases.</span
                     >
                   </div>
                 </div>
                 <div class="trust-reason">
                   <span class="trust-reason-num">02</span>
                   <div>
-                    <span class="trust-reason-title">Kharkiv City Centre</span>
+                    <span class="trust-reason-title"><span data-tsc="city">Kharkiv</span> City Centre</span>
                     <span class="trust-reason-txt"
-                      >Conveniently located at Rymarska St. 19, close to all key
+                      >Conveniently located at
+                      <span data-tsc="address">Rymarska St. 19, Kharkiv</span>, close to all key
                       landmarks in the city.</span
                     >
                   </div>
@@ -643,7 +675,7 @@
               <div class="trust-stat-row">
                 <div class="trust-stat-big">30+</div>
                 <div class="trust-stat-desc">
-                  Years in notarial practice in the Kharkiv district
+                  Years of daily notarial practice
                 </div>
               </div>
               <div class="trust-stat-row">
@@ -732,7 +764,7 @@
                   I came to handle an inheritance case after my father's
                   passing. I'm very grateful for the patience and clear
                   explanations at every step. All documents were ready the very
-                  next day. The office is right in the centre of Kharkiv —
+                  next day. The office is right in the centre of <span data-tsc="city">Kharkiv</span> —
                   incredibly easy to reach from the metro.
                 </p>
               </blockquote>
@@ -740,7 +772,7 @@
                 <div class="review__author-avatar" aria-hidden="true">I</div>
                 <div class="review__author-info">
                   <span class="review__author">Iryna Kovalenko</span>
-                  <span class="review__meta">Kharkiv · Inheritance</span>
+                  <span class="review__meta"><span data-tsc="city">Kharkiv</span> · Inheritance</span>
                 </div>
               </footer>
             </article>
@@ -775,7 +807,7 @@
               </div>
               <blockquote class="review__text">
                 <p>
-                  I used a notary in Kharkiv for purchasing an apartment in the
+                  I used a notary in <span data-tsc="city">Kharkiv</span> for purchasing an apartment in the
                   city centre — exactly what you need for a serious transaction.
                   The experience shows immediately. Every document was checked
                   for legal clarity and the deal went through without a single
@@ -786,7 +818,7 @@
                 <div class="review__author-avatar" aria-hidden="true">O</div>
                 <div class="review__author-info">
                   <span class="review__author">Oleksandr Bondarenko</span>
-                  <span class="review__meta">Kharkiv · Real Estate</span>
+                  <span class="review__meta"><span data-tsc="city">Kharkiv</span> · Real Estate</span>
                 </div>
               </footer>
             </article>
@@ -823,8 +855,8 @@
                 <p>
                   I needed an urgent power of attorney for my child to travel
                   abroad. I booked in the evening and everything was ready the
-                  next morning. The private notary in central Kharkiv is
-                  brilliantly located on Rymarska St. — right next to the metro.
+                  next morning. The office is brilliantly located in the city
+                  centre, right next to the metro.
                   Courteous and attentive service throughout.
                 </p>
               </blockquote>
@@ -832,7 +864,7 @@
                 <div class="review__author-avatar" aria-hidden="true">M</div>
                 <div class="review__author-info">
                   <span class="review__author">Maryna Tkachenko</span>
-                  <span class="review__meta">Kharkiv · Power of Attorney</span>
+                  <span class="review__meta"><span data-tsc="city">Kharkiv</span> · Power of Attorney</span>
                 </div>
               </footer>
             </article>
@@ -878,7 +910,7 @@
                 <div class="review__author-info">
                   <span class="review__author">Vasyl Petrenko</span>
                   <span class="review__meta"
-                    >Kharkiv · Business Registration</span
+                    ><span data-tsc="city">Kharkiv</span> · Business Registration</span
                   >
                 </div>
               </footer>
@@ -904,12 +936,12 @@
               </h2>
             </div>
             <a
-              href="tel:+380440000000"
+              href="tel:+380570000000"
               class="btn-cta"
               data-sr="right"
               style="margin-bottom: 4px"
             >
-              <span>+380 44 000 00 00</span>
+              <span>+380 57 000 00 00</span>
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -928,13 +960,14 @@
             <!-- Col 1 — Address -->
             <div class="contact-col" data-sr="up" data-delay="0">
               <span class="t-label">Address</span>
-              <div class="contact-val">Rymarska St. 19, Kharkiv</div>
-              <p class="contact-note">
+              <div class="contact-val" data-tsc="address">Rymarska St. 19, Kharkiv</div>
+              <p class="contact-note" data-tsc="local">
                 Kharkiv city centre, "Universytet" metro station — 5 minutes on
                 foot
               </p>
               <a
                 href="https://maps.google.com/?q=Rymarska+St+19+Kharkiv"
+                data-tsc="maplink"
                 class="contact-link"
                 target="_blank"
                 rel="noopener"
@@ -955,9 +988,9 @@
             <!-- Col 2 — Get in Touch -->
             <div class="contact-col" data-sr="up" data-delay="80">
               <span class="t-label">Get in Touch</span>
-              <div class="contact-val">+380 44 000 00 00</div>
-              <p class="contact-note">office@kharkiv-notary.ua</p>
-              <a href="mailto:office@kharkiv-notary.ua" class="contact-link">
+              <div class="contact-val">+380 57 000 00 00</div>
+              <p class="contact-note">office@notary-kharkiv.demo</p>
+              <a href="mailto:office@notary-kharkiv.demo" class="contact-link">
                 Send an Email
                 <svg
                   viewBox="0 0 24 24"
@@ -1004,6 +1037,7 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="Notary Kharkiv — Rymarska St. 19"
+            data-tsc="mapframe"
           ></iframe>
         </div>
         <!-- /contact-map -->
@@ -1015,7 +1049,11 @@
 ===================================================== -->
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <div class="footer-logo">Kharkiv Notary</div>
+        <a href="index-en.html" class="logo logo--light" aria-label="Private notary Olena Koval, Kharkiv — home" data-tsc-label>
+          <span class="logo-name" data-tsc="surname">Koval</span>
+          <span class="logo-rule" aria-hidden="true"></span>
+          <span class="logo-title">Notary · <span data-tsc="city">Kharkiv</span></span>
+        </a>
         <div class="footer-links">
           <a href="#services" class="footer-link">Services</a>
           <a href="#about" class="footer-link">About</a>
@@ -1023,11 +1061,12 @@
           <a href="#contact" class="footer-link">Contact</a>
         </div>
         <div class="footer-copy">
-          © 2025 Kharkiv Notary. All rights reserved.
+          © 2026 Private Notary <span data-tsc="name">Olena Koval</span>, <span data-tsc="city">Kharkiv</span>. All rights reserved.
         </div>
       </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/demo-layer.js" defer></script>
   </body>
 </html>

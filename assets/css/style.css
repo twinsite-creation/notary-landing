@@ -1,7 +1,7 @@
 /* =====================================================
    DESIGN SYSTEM — Swiss Editorial Minimalism
    Palette: Warm white · Charcoal · Ink · Stone gray
-   Fonts: Playfair Display (display) · Figtree (body)
+   Fonts: Playfair Display (display) · Manrope (body)
 ===================================================== */
 :root {
   --ink: #1a1a18;
@@ -14,7 +14,7 @@
   --rule-dark: rgba(26, 26, 24, 0.25);
   --accent: #1a1a18; /* ink-on-white CTA accent */
   --font-d: "Playfair Display", Georgia, serif;
-  --font-b: "Figtree", system-ui, sans-serif;
+  --font-b: "Manrope", system-ui, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
 }
@@ -228,25 +228,55 @@ button {
   justify-content: space-between;
   gap: 24px;
 }
+/* Logo: editorial wordmark (surname / rule / "Notary · City").
+   Text, not an image, so the demo layer can swap name and city.
+   --logo-max limits the width; script.js shrinks long names to fit. */
 .logo {
-  display: flex;
+  --logo-max: 320px;
+  display: inline-flex;
   flex-direction: column;
-  gap: 1px;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
 }
 .logo-name {
   font-family: var(--font-d);
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--ink);
+  font-weight: 900;
+  font-size: clamp(18px, 2vw, 24px);
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  white-space: nowrap;
+  max-width: var(--logo-max);
+}
+.logo-rule {
+  display: block;
+  width: 62%;
+  height: 1px;
+  background: var(--ink);
 }
 .logo-title {
-  font-size: 9px;
+  font-family: var(--font-b);
+  font-size: 8.5px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.38em;
+  margin-right: -0.38em; /* offsets tracking after the last letter */
   text-transform: uppercase;
   color: var(--stone);
+  white-space: nowrap;
+  max-width: var(--logo-max);
+}
+.logo--light .logo-name {
+  color: #fff;
+}
+.logo--light .logo-rule {
+  background: rgba(255, 255, 255, 0.35);
+}
+.logo--light .logo-title {
+  color: rgba(255, 255, 255, 0.55);
+}
+.mob-head .logo {
+  --logo-max: 180px;
 }
 .main-nav {
   display: flex;
@@ -274,7 +304,6 @@ button {
   display: flex;
   align-items: center;
   gap: 0;
-  display: none; /* hide on desktop since lang toggle is removed */
 }
 .lang-toggle {
   display: flex;
@@ -560,20 +589,11 @@ button {
 }
 .services-head {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 32px;
   padding: 84px 0 40px;
   border-bottom: 1px solid var(--rule);
-}
-.services-num-label {
-  font-family: var(--font-d);
-  font-size: 72px;
-  font-weight: 900;
-  color: var(--warm-gray);
-  line-height: 1;
-  letter-spacing: -0.05em;
-  user-select: none;
 }
 .services-grid {
   display: grid;
@@ -1223,12 +1243,6 @@ button {
   gap: 24px;
   flex-wrap: wrap;
 }
-.footer-logo {
-  font-family: var(--font-d);
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--white);
-}
 .footer-links {
   display: flex;
   gap: 0;
@@ -1299,6 +1313,10 @@ button {
 @media (max-width: 800px) {
   .main-nav {
     display: none;
+  }
+  /* room left for the language toggle and the burger */
+  .site-header .logo {
+    --logo-max: calc(100vw - 230px);
   }
   .hamburger {
     display: flex;
@@ -1394,6 +1412,14 @@ button {
   .hero-headline {
     font-size: clamp(40px, 12vw, 64px);
   }
+  /* keep the hero inside the screen: the grid track may shrink,
+     and the long CTA label may wrap */
+  .hero .wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero .btn-cta {
+    white-space: normal;
+  }
   .hero-bottom {
     flex-direction: column;
     align-items: flex-start;
@@ -1410,17 +1436,184 @@ button {
     border-top: none;
   }
   .services-head {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
   }
   .services-head .btn-ghost {
     display: none;
   }
+}
+
+/* Footer on tablet and mobile: everything centred in one column */
+@media (max-width: 800px) {
   .footer-inner {
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
   .footer-links {
     flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 4px;
+  }
+  .footer-link:first-child {
+    padding-left: 20px; /* symmetric padding so the row is centred */
+  }
+}
+@media (max-width: 540px) {
+  /* links may wrap here, so no dividers (they would dangle at line ends) */
+  .footer-link,
+  .footer-link:first-child {
+    padding: 6px 12px;
+    border-right: none;
+  }
+}
+
+/* =====================================================
+   SEAL — signature + notary stamp over the hero photo
+   One colour accent: seal ink blue.
+   Default styles = final state, so with no JS or with
+   reduced motion the finished seal is simply shown.
+===================================================== */
+:root {
+  --seal-ink: #2a3f8f;
+  --seal-size: 160px; /* stamp diameter */
+}
+.seal-stamp {
+  position: absolute;
+  z-index: 2;
+  right: 5%;
+  bottom: 13%;
+  /* svg is 300×200, stamp circle is ~190 units wide */
+  width: calc(var(--seal-size) * 300 / 190);
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.seal__sign {
+  fill: none;
+  stroke: var(--seal-ink);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  opacity: 0.9;
+}
+.seal__stamp {
+  opacity: 0.85;
+  transform-box: view-box;
+  transform-origin: 200px 100px;
+  transform: rotate(-8deg);
+}
+.seal__line {
+  fill: none;
+  stroke: var(--seal-ink);
+  stroke-width: 1.2;
+}
+.seal__line--bold {
+  stroke-width: 3;
+}
+.seal__line--dots {
+  stroke-width: 1.4;
+  stroke-dasharray: 0.5 4;
+  stroke-linecap: round;
+}
+.seal__ring-text {
+  font-family: var(--font-b);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  fill: var(--seal-ink);
+}
+.seal__mono {
+  font-family: var(--font-d);
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-anchor: middle;
+  fill: var(--seal-ink);
+}
+.seal__star {
+  fill: var(--seal-ink);
+}
+.seal__shadow {
+  fill: var(--ink);
+  opacity: 0;
+  transform-box: view-box;
+  transform-origin: 200px 104px;
+}
+
+/* Animation: signature draws → 150ms pause → stamp hits → shadow bounce */
+.seal-stamp--play .seal__sign {
+  animation: seal-sign 1.2s cubic-bezier(0.45, 0.05, 0.35, 1) 0.2s backwards;
+}
+.seal-stamp--play .seal__stamp {
+  animation: seal-hit 0.55s 1.55s backwards;
+}
+.seal-stamp--play .seal__shadow {
+  animation: seal-shadow 0.5s ease-out 1.8s backwards;
+}
+@keyframes seal-sign {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes seal-hit {
+  0% {
+    opacity: 0;
+    transform: scale(1.4) rotate(-14deg);
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+  45% {
+    opacity: 0.85;
+    transform: scale(0.96) rotate(-8deg);
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  100% {
+    opacity: 0.85;
+    transform: scale(1) rotate(-8deg);
+  }
+}
+@keyframes seal-shadow {
+  0% {
+    opacity: 0.28;
+    transform: scale(0.96);
+  }
+  40% {
+    opacity: 0.14;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Tablet / mobile: the photo is short, so the stamp sits on its top
+   edge (half on the page, half on the light wall) and covers no hands. */
+@media (max-width: 800px) {
+  .hero-right {
+    overflow: visible;
+  }
+  .hero-right:hover .hero-img {
+    transform: none;
+  }
+  .seal-stamp {
+    --seal-size: 110px;
+    top: -44px;
+    bottom: auto;
+    right: 4%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seal-stamp--play .seal__sign,
+  .seal-stamp--play .seal__stamp,
+  .seal-stamp--play .seal__shadow {
+    animation: none;
   }
 }

@@ -1,0 +1,171 @@
+/* =====================================================
+   DEMO LAYER — Twin Site Creator
+   Isolated: every class starts with tsc-. Remove this file's
+   <link> and demo-layer.js to get a clean notary site.
+   The bar sits in normal flow above the sticky header,
+   so the header and mobile menu keep working as before.
+===================================================== */
+
+/* Smooth text swap on personalisation */
+[data-tsc] {
+  transition: opacity 0.2s ease;
+}
+.tsc-fade {
+  opacity: 0 !important;
+}
+[data-tsc][hidden] {
+  display: none !important;
+}
+
+/* ---------- bar ----------
+   Space for the bar is reserved by CSS before JS runs, so the page
+   does not jump (no layout shift). JS then sets the exact height. */
+:root {
+  --tsc-bar-h: 44px;
+}
+body::before {
+  content: "";
+  display: block;
+  height: var(--tsc-bar-h);
+}
+.tsc-bar-off body::before {
+  display: none;
+}
+.tsc-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 901;
+  background: var(--warm-gray, #f2f0eb);
+  border-bottom: 1px solid var(--rule, rgba(26, 26, 24, 0.12));
+  font-family: var(--font-b, system-ui, sans-serif);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--charcoal, #2e2e2b);
+}
+.tsc-bar__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 9px 48px 9px 24px;
+  position: relative;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.tsc-bar__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 14px;
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.2s ease;
+}
+.tsc-bar__text strong {
+  font-weight: 600;
+  color: var(--ink, #1a1a18);
+}
+.tsc-bar__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.tsc-bar__link {
+  font: inherit;
+  font-weight: 600;
+  color: var(--seal-ink, #2a3f8f);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  padding: 2px 0;
+}
+.tsc-bar__link:hover {
+  text-decoration-thickness: 2px;
+}
+.tsc-bar__link--muted {
+  color: var(--stone, #76756e);
+  font-weight: 500;
+}
+.tsc-bar__close {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--stone, #76756e);
+}
+.tsc-bar__close:hover {
+  color: var(--ink, #1a1a18);
+}
+
+/* ---------- form ---------- */
+.tsc-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.tsc-input {
+  font: inherit;
+  width: 200px;
+  height: 32px;
+  padding: 0 10px;
+  background: var(--white, #fff);
+  border: 1px solid var(--rule-dark, rgba(26, 26, 24, 0.25));
+  border-radius: 0;
+  color: var(--ink, #1a1a18);
+}
+.tsc-input--city {
+  width: 140px;
+}
+.tsc-input:focus {
+  outline: 2px solid var(--seal-ink, #2a3f8f);
+  outline-offset: -1px;
+}
+.tsc-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 16px;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ink, #1a1a18);
+  color: var(--white, #fff);
+  border: 1px solid var(--ink, #1a1a18);
+  transition: background 0.2s, color 0.2s;
+}
+.tsc-btn:hover {
+  background: var(--seal-ink, #2a3f8f);
+  border-color: var(--seal-ink, #2a3f8f);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --tsc-bar-h: 62px; /* intro text wraps to two lines */
+  }
+}
+@media (max-width: 540px) {
+  .tsc-bar {
+    font-size: 12px;
+  }
+  .tsc-bar__inner {
+    padding: 8px 40px 8px 16px;
+  }
+  .tsc-form {
+    width: 100%;
+  }
+  .tsc-input,
+  .tsc-input--city {
+    flex: 1 1 120px;
+    width: auto;
+  }
+  .tsc-btn {
+    flex: 0 0 auto;
+  }
+}

@@ -3,35 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Нотаріус Львів центр — Римарська 19 | 30 років досвіду</title>
+    <title data-tsc="title">Приватний нотаріус Харків центр — Римарська 19 | 30+ років</title>
     <meta
       name="description"
       content="Приватний нотаріус у центрі Харкова (вул. Римарська, 19). 30 років досвіду. Нерухомість, довіреності, спадщина, договори. Швидко та законно."
     />
 
     <!-- favicon -->
-    <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/images/favicon-16x16.png"
-    />
+    <link rel="icon" href="assets/images/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="alternate" hreflang="uk" href="index.html" />
     <link rel="alternate" hreflang="en" href="index-en.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Figtree:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Manrope:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Demo layer (Twin Site Creator): delete this line and the demo-layer script for a client site -->
+    <link rel="stylesheet" href="assets/css/demo-layer.css" />
   </head>
   <body>
     <!-- =====================================================
@@ -39,9 +32,10 @@
 ===================================================== -->
     <header class="site-header">
       <div class="wrap header-inner">
-        <a href="index.html" class="logo">
-          <span class="logo-name">Нотаріус</span>
-          <span class="logo-title">Приватний нотаріус · Львів</span>
+        <a href="index.html" class="logo" aria-label="Приватний нотаріус Олена Коваль, Харків — на головну" data-tsc-label>
+          <span class="logo-name" data-tsc="surname">Коваль</span>
+          <span class="logo-rule" aria-hidden="true"></span>
+          <span class="logo-title">Нотаріус · <span data-tsc="city">Харків</span></span>
         </a>
         <nav class="main-nav" aria-label="Головна навігація">
           <a href="#services" class="nav-item">Послуги</a>
@@ -50,10 +44,10 @@
           <a href="#contact" class="nav-item">Контакти</a>
         </nav>
         <div class="header-right">
-          <!--<div class="lang-toggle">
-            <button class="lang-btn on" data-lang="uk">UA</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-          </div>-->
+          <nav class="lang-toggle" aria-label="Мова сайту">
+            <a class="lang-btn on" href="index.html" hreflang="uk" lang="uk" aria-current="page">UA</a>
+            <a class="lang-btn" href="index-en.html" hreflang="en" lang="en">EN</a>
+          </nav>
 
           <button
             class="hamburger"
@@ -72,9 +66,11 @@
     <div class="mob-overlay" id="mobOverlay"></div>
     <nav class="mob-panel" id="mobPanel" aria-label="Мобільне меню">
       <div class="mob-head">
-        <span class="logo-name">Нотаріус</span>
-        <span class="logo-title">Приватний нотаріус</span>
-        >
+        <a href="index.html" class="logo" aria-label="Приватний нотаріус Олена Коваль, Харків — на головну" data-tsc-label>
+          <span class="logo-name" data-tsc="surname">Коваль</span>
+          <span class="logo-rule" aria-hidden="true"></span>
+          <span class="logo-title">Нотаріус · <span data-tsc="city">Харків</span></span>
+        </a>
         <button class="mob-close" id="mobClose" aria-label="Закрити меню">
           <svg
             viewBox="0 0 24 24"
@@ -95,10 +91,10 @@
         <a href="#contact" class="mob-link">Контакти</a>
       </div>
       <div class="mob-foot">
-        <div class="mob-lang">
-          <button class="lang-btn on" data-lang="uk">UA</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-        </div>
+        <nav class="mob-lang" aria-label="Мова сайту">
+          <a class="lang-btn on" href="index.html" hreflang="uk" lang="uk" aria-current="page">UA</a>
+          <a class="lang-btn" href="index-en.html" hreflang="en" lang="en">EN</a>
+        </nav>
       </div>
     </nav>
 
@@ -112,14 +108,14 @@
             <div>
               <div class="hero-tag" data-sr="up">
                 <div class="hero-tag-line"></div>
-                <span class="t-label">Нотаріальна контора · Львів (центр)</span>
+                <span class="t-label">Нотаріальна контора · <span data-tsc="city">Харків</span> (центр)</span>
               </div>
               <h1 class="hero-headline" data-sr="up" data-delay="80">
-                Приватний нотаріус у Харкові
+                Приватний нотаріус, <span data-tsc="city">Харків</span>
               </h1>
               <p class="hero-sub" data-sr="up" data-delay="160">
-                Приватний нотаріус у Харкові (вул. Римарська, 19) з досвідом
-                понад 30 років. Оформлення договорів, спадщини, довіреностей та
+                <span data-tsc="address">вул. Римарська, 19, Харків</span> ·
+                досвід понад 30 років. Оформлення договорів, спадщини, довіреностей та
                 інших нотаріальних документів швидко, професійно та відповідно
                 до законодавства України.
               </p>
@@ -163,9 +159,49 @@
               loading="eager"
             />
             <div class="hero-img-caption">
-              <span class="hero-img-caption-text">Приватний нотаріус</span>
-              <span class="hero-img-caption-text">Львів, Україна</span>
+              <span class="hero-img-caption-text"><span data-tsc="name">Олена Коваль</span></span>
+              <span class="hero-img-caption-text"><span data-tsc="city">Харків</span>, Україна</span>
             </div>
+            <!-- SEAL: signature + stamp over hero photo -->
+            <svg
+              class="seal-stamp seal-stamp--play"
+              viewBox="0 0 300 200"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <filter id="seal-ink" x="-10%" y="-10%" width="120%" height="120%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="grain" />
+                  <feDisplacementMap in="SourceGraphic" in2="grain" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="wobble" />
+                  <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3" result="blots" />
+                  <feColorMatrix in="blots" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.75" result="mask" />
+                  <feComposite in="wobble" in2="mask" operator="in" />
+                </filter>
+                <filter id="seal-blur" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="6" />
+                </filter>
+                <path id="seal-ring-path" d="M 200,100 m -74,0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0" />
+              </defs>
+              <path
+                class="seal__sign"
+                pathLength="1"
+                d="M8,158 C22,128 36,104 44,118 C52,132 40,170 56,160 C70,150 74,122 84,126 C94,130 86,158 98,156 C110,154 112,132 122,134 C132,136 126,156 138,154 C152,152 160,128 172,138 C180,145 168,160 158,162 C140,166 92,170 60,178 C44,182 40,176 60,170 C110,156 190,150 248,146"
+              />
+              <circle class="seal__shadow" cx="200" cy="104" r="92" filter="url(#seal-blur)" />
+              <g class="seal__stamp" filter="url(#seal-ink)">
+                <circle cx="200" cy="100" r="94" class="seal__line seal__line--bold" />
+                <circle cx="200" cy="100" r="89" class="seal__line" />
+                <circle cx="200" cy="100" r="64" class="seal__line" />
+                <circle cx="200" cy="100" r="59" class="seal__line seal__line--dots" />
+                <text class="seal__ring-text">
+                  <textPath href="#seal-ring-path" textLength="462">ПРИВАТНИЙ НОТАРІУС · <tspan data-seal="name" data-tsc="name">Олена Коваль</tspan> · <tspan data-seal="city" data-tsc="city">Харків</tspan> ·</textPath>
+                </text>
+                <path class="seal__star" d="M200,58 l2.6,6.4 6.9,.5 -5.3,4.4 1.7,6.7 -5.9,-3.7 -5.9,3.7 1.7,-6.7 -5.3,-4.4 6.9,-.5z" />
+                <text class="seal__mono" x="200" y="120" data-seal="initials">ОК</text>
+                <line class="seal__line" x1="176" y1="132" x2="224" y2="132" />
+                <path class="seal__star seal__star--sm" d="M200,138 l1.6,3.9 4.2,.3 -3.2,2.7 1,4.1 -3.6,-2.2 -3.6,2.2 1,-4.1 -3.2,-2.7 4.2,-.3z" />
+              </g>
+            </svg>
           </div>
         </div>
       </section>
@@ -176,7 +212,6 @@
       <section class="services" id="services">
         <div class="wrap">
           <div class="services-head">
-            <div class="services-num-label" aria-hidden="true">02</div>
             <div data-sr="up">
               <span class="t-label" style="display: block; margin-bottom: 8px"
                 >Послуги</span
@@ -231,7 +266,7 @@
                     <line x1="16" y1="13" x2="8" y2="13" />
                   </svg>
                 </div>
-                <div class="svc-name">Посвідчення документів у Харкові</div>
+                <div class="svc-name">Посвідчення документів<span data-tsc="local"> у Харкові</span></div>
                 <p class="svc-desc">
                   Засвідчення підписів, копій документів, заяв та перекладів
                   відповідно до вимог законодавства України.
@@ -272,7 +307,7 @@
                     <polyline points="9 22 9 12 15 12 15 22" />
                   </svg>
                 </div>
-                <div class="svc-name">Нотаріус з нерухомості у Харкові</div>
+                <div class="svc-name">Нотаріус з нерухомості<span data-tsc="local"> у Харкові</span></div>
                 <p class="svc-desc">
                   Оформлення купівлі-продажу, дарування, спадщини нерухомості з
                   повною юридичною перевіркою.
@@ -353,22 +388,22 @@
         <div class="about-img-col">
           <img
             src="assets/images/professional-notary-work.webp"
-            alt="Нотаріус Львів"
+            alt="Робоче місце приватного нотаріуса в центрі Харкова"
             class="tmember__photo"
           />
           <div class="about-sticker">
-            <div class="about-sticker-yr">2009</div>
-            <div class="about-sticker-txt">Рік заснування</div>
+            <div class="about-sticker-yr">1995</div>
+            <div class="about-sticker-txt">Початок практики</div>
           </div>
         </div>
         <div class="about-text-col">
           <span class="t-label" data-sr="up">Про нотаріуса</span>
           <h2 class="t-heading" data-sr="up" data-delay="80">
-            Приватний нотаріус
+            <span data-tsc="name">Олена Коваль</span>
           </h2>
           <p class="t-body" data-sr="up" data-delay="160">
-            Приватний нотаріус Львівського нотаріального округу з досвідом понад
-            30 років. За цей час було оформлено тисячі договорів, спадкових
+            Приватний нотаріус з досвідом понад 30 років, місто
+            <span data-tsc="city">Харків</span>. За цей час було оформлено тисячі договорів, спадкових
             справ та нотаріальних документів різної складності.
           </p>
           <p class="t-body" data-sr="up" data-delay="200">
@@ -377,8 +412,9 @@
             досвіду та уважності до деталей.
           </p>
           <p class="t-body" data-sr="up" data-delay="260">
-            Нотаріальна контора розташована у самому центрі Харкова — вул.
-            Римарська, 19, що забезпечує зручний доступ для клієнтів.
+            Нотаріальна контора розташована в центрі міста:
+            <span data-tsc="address">вул. Римарська, 19, Харків</span>. Сюди
+            зручно дістатися громадським транспортом.
           </p>
           <p class="t-body" data-sr="up" data-delay="300">
             Гарантую законність, конфіденційність та індивідуальний підхід до
@@ -422,7 +458,7 @@
               <div class="about__certificate-img-wrap">
                 <img
                   src="assets/images/certificate-notary.png"
-                  alt="Свідоцтво нотаріуса Львів Римарська 19"
+                  alt="Свідоцтво приватного нотаріуса, Харків, вул. Римарська, 19"
                   loading="lazy"
                   onerror="
                     this.style.display = 'none';
@@ -454,7 +490,7 @@
                   Діяльність здійснюється на підставі свідоцтва про право на
                   зайняття нотаріальною діяльністю, виданого Міністерством
                   юстиції України відповідно до Закону України «Про нотаріат».
-                  Реєстр Львівського нотаріального округу.
+                  <span data-tsc="district">Харківський міський нотаріальний округ.</span>
                 </p>
               </div>
             </div>
@@ -583,18 +619,19 @@
                   <div>
                     <span class="trust-reason-title">30+ років досвіду</span>
                     <span class="trust-reason-txt"
-                      >Один із найбільших практичних досвідів серед нотаріусів
-                      Харкова.</span
+                      >Понад 30 років щоденної практики: від простих
+                      довіреностей до складних спадкових справ.</span
                     >
                   </div>
                 </div>
                 <div class="trust-reason">
                   <span class="trust-reason-num">02</span>
                   <div>
-                    <span class="trust-reason-title">Центр Харкова</span>
+                    <span class="trust-reason-title">Центр міста</span>
                     <span class="trust-reason-txt"
-                      >Зручне розташування — вул. Римарська, 19, поруч із
-                      ключовими локаціями міста.</span
+                      >Зручне розташування:
+                      <span data-tsc="address">вул. Римарська, 19, Харків</span>,
+                      поруч із ключовими локаціями міста.</span
                     >
                   </div>
                 </div>
@@ -626,7 +663,7 @@
               <div class="trust-stat-row">
                 <div class="trust-stat-big">30+</div>
                 <div class="trust-stat-desc">
-                  Років у нотаріальній практиці по Київському округу
+                  Років щоденної нотаріальної практики
                 </div>
               </div>
               <div class="trust-stat-row">
@@ -715,7 +752,7 @@
                   Зверталась до нотаріуса для оформлення спадщини після батька.
                   Дуже вдячна за терпіння та чіткі пояснення на кожному етапі.
                   Всі документи були готові вже наступного дня. Зручно, що
-                  контора розташована в центрі Харкова — дістатись дуже легко
+                  контора розташована в центрі міста — дістатись дуже легко
                   від метро.
                 </p>
               </blockquote>
@@ -723,7 +760,7 @@
                 <div class="review__author-avatar" aria-hidden="true">І</div>
                 <div class="review__author-info">
                   <span class="review__author">Ірина Коваленко</span>
-                  <span class="review__meta">Львів · Спадщина</span>
+                  <span class="review__meta"><span data-tsc="city">Харків</span> · Спадщина</span>
                 </div>
               </footer>
             </article>
@@ -758,8 +795,8 @@
               </div>
               <blockquote class="review__text">
                 <p>
-                  Оформляв купівлю квартири в центрі Харкова. Нотаріус Львів —
-                  саме те, що потрібно для серйозної угоди: досвід одразу
+                  Оформляв купівлю квартири в центрі міста. Для серйозної
+                  угоди саме те, що потрібно: досвід нотаріуса одразу
                   відчувається. Перевірили всі документи на юридичну чистоту,
                   угода пройшла без жодних ускладнень. Рекомендую всім, хто
                   шукає надійного спеціаліста.
@@ -769,7 +806,7 @@
                 <div class="review__author-avatar" aria-hidden="true">О</div>
                 <div class="review__author-info">
                   <span class="review__author">Олександр Бондаренко</span>
-                  <span class="review__meta">Львів · Нерухомість</span>
+                  <span class="review__meta"><span data-tsc="city">Харків</span> · Нерухомість</span>
                 </div>
               </footer>
             </article>
@@ -806,8 +843,8 @@
                 <p>
                   Потребувала термінової довіреності для виїзду дитини за
                   кордон. Записалась ввечері, наступного ранку вже все було
-                  готово. Приватний нотаріус у центрі Харкова — дуже зручне
-                  розташування на Римарській, поруч із метро. Чемне та уважне
+                  готово. Контора в самому центрі, поруч із метро, — дуже
+                  зручне розташування. Чемне та уважне
                   ставлення до клієнтів.
                 </p>
               </blockquote>
@@ -815,7 +852,7 @@
                 <div class="review__author-avatar" aria-hidden="true">М</div>
                 <div class="review__author-info">
                   <span class="review__author">Марина Ткаченко</span>
-                  <span class="review__meta">Львів · Довіреність</span>
+                  <span class="review__meta"><span data-tsc="city">Харків</span> · Довіреність</span>
                 </div>
               </footer>
             </article>
@@ -860,7 +897,7 @@
                 <div class="review__author-avatar" aria-hidden="true">В</div>
                 <div class="review__author-info">
                   <span class="review__author">Василь Петренко</span>
-                  <span class="review__meta">Львів · Реєстрація бізнесу</span>
+                  <span class="review__meta"><span data-tsc="city">Харків</span> · Реєстрація бізнесу</span>
                 </div>
               </footer>
             </article>
@@ -885,12 +922,12 @@
               </h2>
             </div>
             <a
-              href="tel:+380440000000"
+              href="tel:+380570000000"
               class="btn-cta"
               data-sr="right"
               style="margin-bottom: 4px"
             >
-              <span>+380 44 000 00 00</span>
+              <span>+380 57 000 00 00</span>
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -909,12 +946,13 @@
             <!-- Col 1 — Address -->
             <div class="contact-col" data-sr="up" data-delay="0">
               <span class="t-label">Адреса</span>
-              <div class="contact-val">вул. Римарська, 19, Львів</div>
-              <p class="contact-note">
+              <div class="contact-val" data-tsc="address">вул. Римарська, 19, Харків</div>
+              <p class="contact-note" data-tsc="local">
                 центр Харкова, станція метро «Університет» — 5 хвилин пішки
               </p>
               <a
-                href="https://maps.google.com/?q=вул.+Римарська,+19,+Львів"
+                href="https://maps.google.com/?q=вул.+Римарська,+19,+Харків"
+                data-tsc="maplink"
                 class="contact-link"
                 target="_blank"
                 rel="noopener"
@@ -935,9 +973,9 @@
             <!-- Col 2 — Get in Touch -->
             <div class="contact-col" data-sr="up" data-delay="80">
               <span class="t-label">Зв'язок</span>
-              <div class="contact-val">+380 44 000 00 00</div>
-              <p class="contact-note">office@kharkiv-notary.ua</p>
-              <a href="mailto:office@kharkiv-notary.ua" class="contact-link">
+              <div class="contact-val">+380 57 000 00 00</div>
+              <p class="contact-note">office@notary-kharkiv.demo</p>
+              <a href="mailto:office@notary-kharkiv.demo" class="contact-link">
                 Написати email
                 <svg
                   viewBox="0 0 24 24"
@@ -983,7 +1021,8 @@
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Нотаріус Львів — вул. Римарська, 19"
+            title="Приватний нотаріус у Харкові — вул. Римарська, 19 на карті"
+            data-tsc="mapframe"
           ></iframe>
         </div>
         <!-- /contact-map -->
@@ -995,7 +1034,11 @@
 ===================================================== -->
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <div class="footer-logo">Нотаріус Львів</div>
+        <a href="index.html" class="logo logo--light" aria-label="Приватний нотаріус Олена Коваль, Харків — на головну" data-tsc-label>
+          <span class="logo-name" data-tsc="surname">Коваль</span>
+          <span class="logo-rule" aria-hidden="true"></span>
+          <span class="logo-title">Нотаріус · <span data-tsc="city">Харків</span></span>
+        </a>
         <div class="footer-links">
           <a href="#services" class="footer-link">Послуги</a>
           <a href="#about" class="footer-link">Про нас</a>
@@ -1003,11 +1046,12 @@
           <a href="#contact" class="footer-link">Контакти</a>
         </div>
         <div class="footer-copy">
-          © 2025 Нотаріус Львів. Усі права захищено.
+          © 2026 Приватний нотаріус <span data-tsc="name">Олена Коваль</span>, <span data-tsc="city">Харків</span>. Усі права захищено.
         </div>
       </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/demo-layer.js" defer></script>
   </body>
 </html>

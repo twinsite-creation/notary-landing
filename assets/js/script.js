@@ -109,4 +109,96 @@ document.addEventListener("DOMContentLoaded", () => {
      Keeping showFormMessage stub in case it is referenced elsewhere.
   ============================================================ */
 
+  /* ============================================================
+     6. HERO SEAL
+  ============================================================ */
+  initSeal();
+
+  /* ============================================================
+     7. LOGO FIT — long surnames / cities shrink instead of
+        breaking the header
+  ============================================================ */
+  fitLogos();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLogos);
+  let fitFrame = 0;
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(fitFrame);
+    fitFrame = requestAnimationFrame(fitLogos);
+  });
+  window.fitLogos = fitLogos;
 }); // end DOMContentLoaded
+
+/**
+ * Shrinks .logo-name / .logo-title font size until the text fits
+ * its max-width (set via --logo-max in CSS). Normal names are untouched.
+ */
+function fitLogos() {
+  const parts = [
+    { sel: ".logo-name", min: 12, step: 1 },
+    { sel: ".logo-title", min: 6.5, step: 0.5 },
+  ];
+  parts.forEach(({ sel, min, step }) => {
+    document.querySelectorAll(".logo " + sel).forEach((el) => {
+      el.style.fontSize = "";
+      const max = parseFloat(getComputedStyle(el).maxWidth);
+      if (!max) return;
+      let size = parseFloat(getComputedStyle(el).fontSize);
+      while (el.scrollWidth > max + 0.5 && size > min) {
+        size = Math.max(min, size - step);
+        el.style.fontSize = size + "px";
+      }
+    });
+  });
+}
+
+/**
+ * Hero seal (signature + stamp). The animation itself is pure CSS
+ * and plays once on load. This exposes window.notarySeal so other
+ * scripts can change the text and play it again:
+ *   notarySeal.refresh() — rebuild initials and fit ring text
+ *   notarySeal.replay()  — play the animation again
+ */
+function initSeal() {
+  const seal = document.querySelector(".seal-stamp");
+  if (!seal) return;
+
+  const ring = seal.querySelector(".seal__ring-text");
+  const nameEl = seal.querySelector('[data-seal="name"]');
+  const monoEl = seal.querySelector('[data-seal="initials"]');
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Shrink the ring text when the name or city is long.
+  function fitRing() {
+    if (!ring) return;
+    const len = ring.textContent.replace(/\s+/g, " ").trim().length;
+    const size = Math.max(8, Math.min(13, (13 * 46) / len));
+    ring.style.fontSize = size.toFixed(2) + "px";
+  }
+
+  // Monogram from the first letters of the first two words of the name.
+  function updateInitials() {
+    if (!nameEl || !monoEl) return;
+    const words = nameEl.textContent.trim().split(/\s+/).filter(Boolean);
+    const initials = words
+      .slice(0, 2)
+      .map((w) => Array.from(w)[0])
+      .join("")
+      .toUpperCase();
+    monoEl.textContent = initials || "✦";
+  }
+
+  function replay() {
+    if (reduceMotion.matches) return;
+    seal.classList.remove("seal-stamp--play");
+    void seal.getBoundingClientRect(); // restart CSS animations
+    seal.classList.add("seal-stamp--play");
+  }
+
+  function refresh() {
+    fitRing();
+    updateInitials();
+  }
+
+  refresh();
+  window.notarySeal = { refresh, replay };
+}
